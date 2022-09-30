@@ -18,8 +18,9 @@ def all_species(filename):
     each_species = set()
     file = open(filename)
     for line in file:
-        species = line.rstrip().split('|')[1]
-        each_species.add(species)
+        line = line.rstrip()
+        species = line.split('|')
+        each_species.add(species[1])
     print(each_species)
 
     return species
