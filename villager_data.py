@@ -19,12 +19,11 @@ def all_species(filename):
     file = open(filename)
     for line in file:
         line = line.rstrip()
-        species = line.split('|')
-        each_species.add(species[1])
+        attributes_list = line.split('|')  # ['Cyrano', 'Aardvark', ]
+        each_species.add(attributes_list[1])
     print(each_species)
 
-    return species
-
+    return attributes_list
 
 
 def get_villagers_by_species(filename, search_string="All"):
@@ -52,18 +51,16 @@ def get_villagers_by_species(filename, search_string="All"):
         line = line.rstrip()    #strip the whitespace
         # print(type(line))
         attributes = line.split('|')  # creates a list
-        print(attributes)
+        # print(attributes)
         name, species, personality, hobby, motto = attributes
-        print(name, species)
+        # print(name, species)
         if species == search_string or search_string == "All": 
             villagers.append(name)
-        
-
 
     # TODO: replace this with your code
 
     return sorted(villagers)
-get_villagers_by_species('villagers.csv')
+# print(get_villagers_by_species('villagers.csv'))
 
 
 def all_names_by_hobby(filename):
@@ -75,10 +72,52 @@ def all_names_by_hobby(filename):
     Return:
         - list[list[str]]: a list of lists containing names
     """
+    # [['Andrea', 'Julia'], ['Marie-Claire'], ["Khaled"]]
+    # initialize several lists, one for each hobby
+        # education = []
+        # fitness = []
+        # reading = []
+    # for each line, determine the hobby for that villager and that tells
+        # us which list to add the name to
+    # put all of the hobby lists into the list to return
+    
+    fitness = []
+    education = []
+    fashion = []
+    music = []
+    play = []
+    nature = []
 
-    # TODO: replace this with your code
+    file = open(filename)
 
-    return []
+    for line in file:
+        line = line.rstrip()
+        attributes =  line.split('|')
+        hobby = attributes[3]
+        name = attributes[0]
+
+        if hobby == 'Fitness':
+            fitness.append(name)
+        if hobby == 'Education':
+            education.append(name)
+        if hobby == 'Fashion':
+            fashion.append(name)
+        if hobby == 'Music':
+            music.append(name)
+        if hobby == 'Play':
+            play.append(name)
+        if hobby == 'Nature':
+            nature.append(name)
+
+    return [
+        fashion,
+        fitness,
+        education,
+        music, 
+        play,
+        nature
+        ]
+# print("ALL NAMES BY HOBBY: ", all_names_by_hobby('villagers.csv'))
 
 
 def all_data(filename):
@@ -93,6 +132,12 @@ def all_data(filename):
     Return:
         - list[tuple[str]]: a list of tuples containing strings
     """
+    # create an empty list to store the data
+    # open the file 
+    # strip the white space 
+    # split by "|" delimiter (will return a list)
+    # make the 
+
 
     all_data = []
 
