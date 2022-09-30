@@ -36,12 +36,33 @@ def get_villagers_by_species(filename, search_string="All"):
     Return:
         - list[str]: a list of names
     """
+    #open the file 
+    #create an empty list for villagers
+    #iterate over the data
+    #strip the whitespace
+    #split the the elements that separated by | for the first 2 indices
+    #set up parameters that default all(species) unless a argument is passed in 
+    #
+    #append the names to villagers list
 
+    file = open(filename)
     villagers = []
+    for line in file:
+        line = line.rstrip()    #strip the whitespace
+        # print(type(line))
+        attributes = line.split('|')  # creates a list
+        print(attributes)
+        name, species, personality, hobby, motto = attributes
+        print(name, species)
+        if species == search_string or search_string == "All": 
+            villagers.append(name)
+        
+
 
     # TODO: replace this with your code
 
     return sorted(villagers)
+get_villagers_by_species('villagers.csv')
 
 
 def all_names_by_hobby(filename):
