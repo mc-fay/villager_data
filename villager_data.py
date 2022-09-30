@@ -10,7 +10,20 @@ def all_species(filename):
     Return:
         - set[str]: a set of strings
     """
- 
+       # open the file       # file = open(path)
+    # create a set
+    # get species info from file object and add each species to the set
+    # return the created set
+
+    each_species = set()
+    file = open(filename)
+    for line in file:
+        species = line.rstrip().split('|')[1]
+        each_species.add(species)
+    print(each_species)
+
+    return species
+
 
 
 def get_villagers_by_species(filename, search_string="All"):
